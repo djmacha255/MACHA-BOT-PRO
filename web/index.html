@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MACHA HUB | DJ MACHA 255</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">M</span><div><strong>MACHA HUB</strong><small>DJ MACHA 255</small></div></div>
+      <nav><a class="active" href="#overview">Overview</a><a href="#pairing">Saver pairing</a><a href="#automation">Automation</a><a href="#help">Quick help</a></nav>
+      <div class="side-note"><span class="pulse"></span><div><b>MACHA CORE</b><small>Low latency engine</small></div></div>
+    </aside>
+    <main>
+      <header><div><p class="eyebrow">DJ MACHA 255 / CONTROL CENTER</p><h1>Pair, automate &amp; <em>grow.</em></h1><p class="subtitle">Dashboard salama ya kuunganisha MACHA BOT, kusimamia savers 10 na kuipa brand yako nguvu.</p></div><div class="online"><i id="statusDot"></i><span id="statusText">Checking bot...</span></div></header>
+      <section id="overview" class="stats"><article><span>Bot status</span><strong id="botStatus">—</strong><small id="botNumber">Socket info</small></article><article><span>Active savers</span><strong id="activeSavers">0 / 10</strong><small>Persistent pairing profiles</small></article><article><span>Chatbot mode</span><strong id="chatStatus">OFF</strong><small>Personalized responses</small></article><article><span>Profile rotation</span><strong id="profileStatus">OFF</strong><small id="profileImages">0 images ready</small></article></section>
+      <section id="pairing" class="panel pairing-panel"><div class="panel-head"><div><span class="kicker">01 / CONNECTION</span><h2>Pair your WhatsApp saver</h2><p>Chagua saver, ingiza namba yenye country code bila <b>+</b>, kisha tumia code kwenye WhatsApp.</p></div><span class="badge">10 SAVERS</span></div><form id="pairForm"><label>Saver profile<select id="slot"></select></label><label>WhatsApp number<input id="number" inputmode="numeric" placeholder="255712345678" required></label><button type="submit">Generate pairing code <span>→</span></button></form><div id="pairResult" class="result hidden"></div><div class="security"><span>●</span> Usishiriki pairing code. Dashboard hii haitunzi password yako.</div></section>
+      <section id="automation" class="grid"><div class="panel"><div class="panel-head"><div><span class="kicker">02 / PERSONALITY</span><h2>Chatbot AI</h2></div><label class="switch"><input id="chatEnabled" type="checkbox"><span></span></label></div><p class="muted">Washa kwa command <code>.chatbot on</code> au dashboard. Personalization hufanya bot ijibu kwa mtindo unaotaka.</p><label>Personality<select id="personality"><option value="friendly">Friendly &amp; helpful</option><option value="professional">Professional</option><option value="swahili">Kiswahili cha kawaida</option><option value="dj">DJ MACHA energy</option></select></label><label>Custom instruction<textarea id="prompt" placeholder="Mfano: Jibu kwa Kiswahili, kwa ufupi na heshima..."></textarea></label><button id="saveChat" class="secondary">Save chatbot settings</button><div id="chatNotice" class="notice"></div></div><div class="panel"><div class="panel-head"><div><span class="kicker">03 / BRANDING</span><h2>Dynamic profile</h2></div><label class="switch"><input id="profileEnabled" type="checkbox"><span></span></label></div><p class="muted">Badilisha profile picture automatically kwa interval unayoweka. Weka images zako ndani ya <code>assets/profiles</code>.</p><label>Rotation interval<select id="interval"><option value="5">Kila dakika 5</option><option value="15">Kila dakika 15</option><option value="30">Kila dakika 30</option><option value="60">Kila saa 1</option></select></label><div class="feature-list"><span>✓ DJ MACHA 255 branding</span><span>✓ Auto status &amp; typing tools</span><span>✓ Fast persistent sessions</span></div><button id="saveProfile" class="secondary">Save profile automation</button><div id="profileNotice" class="notice"></div></div></section>
+      <section id="help" class="help"><span class="kicker">QUICK HELP</span><h2>Connect in under a minute.</h2><div class="steps"><div><b>01</b><span>Chagua saver profile</span></div><div><b>02</b><span>Ingiza number yenye country code</span></div><div><b>03</b><span>Link code kwenye WhatsApp</span></div></div></section><footer>© 2026 MACHA HUB · Built for <b>DJ MACHA 255</b></footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
