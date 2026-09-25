@@ -226,7 +226,7 @@ async function helpCommand(sock, chatId, message) {
 └─────────────────────────┈⊷
 
 📢 *Join our channel for updates:*
-${global.channelLink || 'https://whatsapp.com/channel/0029VbChEWdGzzKROKvbMh1O'}`;
+${global.channelLink || 'https://whatsapp.com/channel/0029Vb9D0ciE50Ur95iqA72T'}`;
 
     try {
         const imagePath = path.join(__dirname, '../assets/bot_image.jpg');

@@ -157,10 +157,17 @@ async function startXeonBotInc() {
                 await handleMessages(XeonBotInc, chatUpdate, true)
             } catch (err) {
                 console.error("Error in handleMessages:", err)
-                // Only try to send error message if we have a valid chatId
-                if (mek.key && mek.key.remoteJid) {
+                const messageText = mek.message?.conversation ||
+                    mek.message?.extendedTextMessage?.text ||
+                    mek.message?.imageMessage?.caption ||
+                    mek.message?.videoMessage?.caption ||
+                    mek.message?.buttonsResponseMessage?.selectedButtonId ||
+                    ''
+                const isCommand = messageText.trim().startsWith('.')
+                // Ordinary conversation should never receive a command-processing error.
+                if (isCommand && mek.key && mek.key.remoteJid) {
                     await XeonBotInc.sendMessage(mek.key.remoteJid, {
-                        text: '❌ An error occurred while processing your message.',
+                        text: '❌ An error occurred while processing your command. Please try again.',
                         contextInfo: {
                             forwardingScore: 1,
                             isForwarded: true,
