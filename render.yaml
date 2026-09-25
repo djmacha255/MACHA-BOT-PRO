@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: macha-bot
+    runtime: node
+    plan: starter
+    region: frankfurt
+    buildCommand: npm install --legacy-peer-deps
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NODE_ENV
+        value: production
+      - key: PHONE_NUMBER
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+    disk:
+      name: macha-sessions
+      mountPath: /opt/render/project/src/sessions
+      sizeGB: 10
