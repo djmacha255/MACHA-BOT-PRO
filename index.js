@@ -63,12 +63,17 @@ setInterval(() => {
     }
 }, 60_000) // every 1 minute
 
-// Memory monitoring - Restart if RAM gets too high
+// Report high memory use without forcing an exit; Render restarts can lose
+// active WhatsApp connections, and the platform should handle actual OOMs.
+const memoryWarningLimitMb = Number(process.env.MEMORY_WARNING_MB || 400)
+let memoryWarningActive = false
 setInterval(() => {
     const used = process.memoryUsage().rss / 1024 / 1024
-    if (used > 400) {
-        console.log('⚠️ RAM too high (>400MB), restarting bot...')
-        process.exit(1) // Panel will auto-restart
+    if (used > memoryWarningLimitMb && !memoryWarningActive) {
+        memoryWarningActive = true
+        console.warn(`⚠️ High memory use: ${Math.round(used)}MB RSS (warning limit: ${memoryWarningLimitMb}MB).`)
+    } else if (used <= memoryWarningLimitMb) {
+        memoryWarningActive = false
     }
 }, 30_000) // check every 30 seconds
 

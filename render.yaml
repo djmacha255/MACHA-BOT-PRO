@@ -12,6 +12,8 @@ services:
         value: "20"
       - key: NODE_ENV
         value: production
+      - key: SESSION_DIR
+        value: /opt/render/project/src/sessions/primary
       - key: PHONE_NUMBER
         sync: false
       - key: GEMINI_API_KEY
